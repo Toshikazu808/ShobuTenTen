@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		22F632DAA889C95C99F058E3 /* Pods_ShobuTenTen.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46DEB448578ADBFA1C43CF0A /* Pods_ShobuTenTen.framework */; };
 		BC3D0EAA26C076FF0010918E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3D0EA926C076FF0010918E /* AppDelegate.swift */; };
 		BC3D0EAC26C076FF0010918E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3D0EAB26C076FF0010918E /* SceneDelegate.swift */; };
 		BC3D0EAE26C076FF0010918E /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3D0EAD26C076FF0010918E /* HomeVC.swift */; };
@@ -19,6 +20,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		46DEB448578ADBFA1C43CF0A /* Pods_ShobuTenTen.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ShobuTenTen.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		66B7090B55BF008D06FF9112 /* Pods-ShobuTenTen.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShobuTenTen.debug.xcconfig"; path = "Target Support Files/Pods-ShobuTenTen/Pods-ShobuTenTen.debug.xcconfig"; sourceTree = "<group>"; };
+		BC22C3770871414042D02421 /* Pods-ShobuTenTen.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShobuTenTen.release.xcconfig"; path = "Target Support Files/Pods-ShobuTenTen/Pods-ShobuTenTen.release.xcconfig"; sourceTree = "<group>"; };
 		BC3D0EA626C076FF0010918E /* ShobuTenTen.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShobuTenTen.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC3D0EA926C076FF0010918E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BC3D0EAB26C076FF0010918E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -37,17 +41,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				22F632DAA889C95C99F058E3 /* Pods_ShobuTenTen.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2A6B277B93E23C1EF854386E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				66B7090B55BF008D06FF9112 /* Pods-ShobuTenTen.debug.xcconfig */,
+				BC22C3770871414042D02421 /* Pods-ShobuTenTen.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		B33438B2651F83A8B5394593 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				46DEB448578ADBFA1C43CF0A /* Pods_ShobuTenTen.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		BC3D0E9D26C076FF0010918E = {
 			isa = PBXGroup;
 			children = (
 				BC3D0EA826C076FF0010918E /* ShobuTenTen */,
 				BC3D0EA726C076FF0010918E /* Products */,
+				2A6B277B93E23C1EF854386E /* Pods */,
+				B33438B2651F83A8B5394593 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -107,9 +131,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BC3D0EBA26C077000010918E /* Build configuration list for PBXNativeTarget "ShobuTenTen" */;
 			buildPhases = (
+				2D3CACA55920DA0152161655 /* [CP] Check Pods Manifest.lock */,
 				BC3D0EA226C076FF0010918E /* Sources */,
 				BC3D0EA326C076FF0010918E /* Frameworks */,
 				BC3D0EA426C076FF0010918E /* Resources */,
+				867F077FBEE4D49855C38EBD /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -164,6 +190,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2D3CACA55920DA0152161655 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ShobuTenTen-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		867F077FBEE4D49855C38EBD /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ShobuTenTen/Pods-ShobuTenTen-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ShobuTenTen/Pods-ShobuTenTen-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ShobuTenTen/Pods-ShobuTenTen-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		BC3D0EA226C076FF0010918E /* Sources */ = {
@@ -319,6 +387,7 @@
 		};
 		BC3D0EBB26C077000010918E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 66B7090B55BF008D06FF9112 /* Pods-ShobuTenTen.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -338,6 +407,7 @@
 		};
 		BC3D0EBC26C077000010918E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BC22C3770871414042D02421 /* Pods-ShobuTenTen.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

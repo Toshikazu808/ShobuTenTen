@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import DropDown
 
 class TapBattleVC: UIViewController {
    
@@ -25,6 +26,7 @@ class TapBattleVC: UIViewController {
    @IBOutlet weak var settingsView: UIView!
    @IBOutlet weak var restartButton: UIButton!
    @IBOutlet weak var chooseTimeButton: UIButton!
+   private let timeDropDown = DropDown()
    
    private var blueTeam = BlueTeam()
    private var orangeTeam = OrangeTeam()
@@ -97,6 +99,21 @@ class TapBattleVC: UIViewController {
       chooseTimeButton.layer.cornerRadius = 8
       chooseTimeButton.layer.borderWidth = 2.5
       chooseTimeButton.layer.borderColor = UIColor.white.cgColor
+      
+      timeDropDown.dataSource = Constants.dropDownDataSource
+      timeDropDown.anchorView = chooseTimeButton
+      timeDropDown.direction = .bottom
+      timeDropDown.bottomOffset = CGPoint(x: 0, y: (timeDropDown.anchorView?.plainView.bounds.height)!)
+      timeDropDown.cellHeight = chooseTimeButton.frame.height
+      timeDropDown.cornerRadius = 8
+      timeDropDown.backgroundColor = .systemGreen
+      timeDropDown.textColor = .white
+      timeDropDown.textFont = UIFont(name: "Chalkboard SE", size: 40) ?? .systemFont(ofSize: 40)
+      timeDropDown.selectionBackgroundColor = .systemGreen
+      timeDropDown.separatorColor = .white
+      timeDropDown.customCellConfiguration = { (index: Index, item: String, cell: DropDownCell) -> Void in
+         cell.optionLabel.textAlignment = .center
+      }
    }
    
    private func setupDefaults() {
@@ -107,7 +124,11 @@ class TapBattleVC: UIViewController {
    }
    
    private func runTimer() {
-      Constants.timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(pulse), userInfo: nil, repeats: true)
+      Constants.timer = Timer.scheduledTimer(
+         timeInterval: 1,
+         target: self, selector: #selector(pulse),
+         userInfo: nil,
+         repeats: true)
    }
    
    @objc private func pulse() {
@@ -201,6 +222,10 @@ class TapBattleVC: UIViewController {
    }
    
    @IBAction func chooseTimeTapped(_ sender: UIButton) {
-      
+      timeDropDown.show()
+      timeDropDown.selectionAction = { [weak self] (index: Int, item: String) in
+         guard let _ = self else { return }
+         sender.setTitle(item, for: .normal)
+      }
    }
 }

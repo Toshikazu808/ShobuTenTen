@@ -94,6 +94,9 @@
                                         <state key="normal" title="Restart">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="restartTapped:" destination="Zef-KU-cUC" eventType="touchUpInside" id="Z2S-af-r0S"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yCe-2a-4Ce" userLabel="Back Button">
                                         <rect key="frame" x="5" y="23.666666666666629" width="35.333333333333336" height="27.333333333333329"/>
@@ -330,10 +333,10 @@
         <image name="gearshape" catalog="system" width="128" height="121"/>
         <image name="speaker.wave.2" catalog="system" width="128" height="90"/>
         <namedColor name="BlueTeam">
-            <color red="0.32658591869999998" green="0.71866273879999998" blue="0.97650438549999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.32699999213218689" green="0.71899998188018799" blue="0.97699999809265137" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="OrangeTeam">
-            <color red="0.93406385179999996" green="0.37216997149999997" blue="0.1685264111" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.93400001525878906" green="0.37200000882148743" blue="0.16899999976158142" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

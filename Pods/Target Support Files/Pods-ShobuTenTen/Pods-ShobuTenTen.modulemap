@@ -1,0 +1,6 @@
+framework module Pods_ShobuTenTen {
+  umbrella header "Pods-ShobuTenTen-umbrella.h"
+
+  export *
+  module * { export * }
+}
