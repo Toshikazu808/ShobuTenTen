@@ -17,6 +17,13 @@
 		BC7B4AF626C134D100B64F78 /* TapBattleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7B4AF526C134D100B64F78 /* TapBattleVC.swift */; };
 		BC7B4AFD26C13F4400B64F78 /* Players.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7B4AFC26C13F4400B64F78 /* Players.swift */; };
 		BC7B4AFF26C1514000B64F78 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7B4AFE26C1514000B64F78 /* Constants.swift */; };
+		BC932D2E26C1B62600AA045F /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC932D2D26C1B62600AA045F /* Extensions.swift */; };
+		BC932D3126C1EB9000AA045F /* Samurai.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BC932D3026C1EB9000AA045F /* Samurai.mp3 */; };
+		BC932D3326C1EB9800AA045F /* Arcade.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BC932D3226C1EB9800AA045F /* Arcade.mp3 */; };
+		BC932D3526C1EBA000AA045F /* Retro.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BC932D3426C1EBA000AA045F /* Retro.mp3 */; };
+		BC932D3926C1EC2900AA045F /* Sword.m4a in Resources */ = {isa = PBXBuildFile; fileRef = BC932D3826C1EC2900AA045F /* Sword.m4a */; };
+		BC932D3A26C1EC2D00AA045F /* Pop.m4a in Resources */ = {isa = PBXBuildFile; fileRef = BC932D3626C1EBF300AA045F /* Pop.m4a */; };
+		BC932D3D26C1ECD200AA045F /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC932D3C26C1ECD200AA045F /* SoundManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +41,13 @@
 		BC7B4AF526C134D100B64F78 /* TapBattleVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapBattleVC.swift; sourceTree = "<group>"; };
 		BC7B4AFC26C13F4400B64F78 /* Players.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Players.swift; sourceTree = "<group>"; };
 		BC7B4AFE26C1514000B64F78 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		BC932D2D26C1B62600AA045F /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		BC932D3026C1EB9000AA045F /* Samurai.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Samurai.mp3; sourceTree = "<group>"; };
+		BC932D3226C1EB9800AA045F /* Arcade.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Arcade.mp3; sourceTree = "<group>"; };
+		BC932D3426C1EBA000AA045F /* Retro.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Retro.mp3; sourceTree = "<group>"; };
+		BC932D3626C1EBF300AA045F /* Pop.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = Pop.m4a; sourceTree = "<group>"; };
+		BC932D3826C1EC2900AA045F /* Sword.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = Sword.m4a; sourceTree = "<group>"; };
+		BC932D3C26C1ECD200AA045F /* SoundManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,12 +102,12 @@
 			children = (
 				BC3D0EA926C076FF0010918E /* AppDelegate.swift */,
 				BC3D0EAB26C076FF0010918E /* SceneDelegate.swift */,
-				BC3D0EAF26C076FF0010918E /* Main.storyboard */,
-				BC7B4AFE26C1514000B64F78 /* Constants.swift */,
+				BC932D3B26C1ECAD00AA045F /* Helpers */,
 				BC7B4AFB26C13F2000B64F78 /* Model */,
 				BC7B4AF726C13D6700B64F78 /* View */,
 				BC7B4AF426C1349A00B64F78 /* Controller */,
 				BC3D0EB226C077000010918E /* Assets.xcassets */,
+				BC932D2F26C1EB8000AA045F /* Sounds */,
 				BC3D0EB726C077000010918E /* Info.plist */,
 			);
 			path = ShobuTenTen;
@@ -112,6 +126,7 @@
 			isa = PBXGroup;
 			children = (
 				BC3D0EB426C077000010918E /* LaunchScreen.storyboard */,
+				BC3D0EAF26C076FF0010918E /* Main.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -122,6 +137,36 @@
 				BC7B4AFC26C13F4400B64F78 /* Players.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		BC932D2F26C1EB8000AA045F /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				BC932D3726C1EC0200AA045F /* Songs */,
+				BC932D3826C1EC2900AA045F /* Sword.m4a */,
+				BC932D3626C1EBF300AA045F /* Pop.m4a */,
+			);
+			path = Sounds;
+			sourceTree = "<group>";
+		};
+		BC932D3726C1EC0200AA045F /* Songs */ = {
+			isa = PBXGroup;
+			children = (
+				BC932D3026C1EB9000AA045F /* Samurai.mp3 */,
+				BC932D3226C1EB9800AA045F /* Arcade.mp3 */,
+				BC932D3426C1EBA000AA045F /* Retro.mp3 */,
+			);
+			path = Songs;
+			sourceTree = "<group>";
+		};
+		BC932D3B26C1ECAD00AA045F /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				BC7B4AFE26C1514000B64F78 /* Constants.swift */,
+				BC932D2D26C1B62600AA045F /* Extensions.swift */,
+				BC932D3C26C1ECD200AA045F /* SoundManager.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -183,9 +228,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BC932D3326C1EB9800AA045F /* Arcade.mp3 in Resources */,
 				BC3D0EB626C077000010918E /* LaunchScreen.storyboard in Resources */,
 				BC3D0EB326C077000010918E /* Assets.xcassets in Resources */,
 				BC3D0EB126C076FF0010918E /* Main.storyboard in Resources */,
+				BC932D3126C1EB9000AA045F /* Samurai.mp3 in Resources */,
+				BC932D3526C1EBA000AA045F /* Retro.mp3 in Resources */,
+				BC932D3A26C1EC2D00AA045F /* Pop.m4a in Resources */,
+				BC932D3926C1EC2900AA045F /* Sword.m4a in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -239,11 +289,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				BC3D0EAE26C076FF0010918E /* HomeVC.swift in Sources */,
+				BC932D3D26C1ECD200AA045F /* SoundManager.swift in Sources */,
 				BC3D0EAA26C076FF0010918E /* AppDelegate.swift in Sources */,
 				BC7B4AF626C134D100B64F78 /* TapBattleVC.swift in Sources */,
 				BC7B4AFD26C13F4400B64F78 /* Players.swift in Sources */,
 				BC3D0EAC26C076FF0010918E /* SceneDelegate.swift in Sources */,
 				BC7B4AFF26C1514000B64F78 /* Constants.swift in Sources */,
+				BC932D2E26C1B62600AA045F /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

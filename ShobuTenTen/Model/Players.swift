@@ -9,10 +9,10 @@ import Foundation
 
 struct OrangeTeam {
    var score = 0
-   var winCount = 0
+   static var winCount = 0
 }
 
 struct BlueTeam {
    var score = 0
-   var winCount = 0
+   static var winCount = 0
 }
