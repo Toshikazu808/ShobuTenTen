@@ -294,6 +294,8 @@ class TapBattleVC: UIViewController {
       secondsPassed = 0
       blueTeam.score = 0
       orangeTeam.score = 0
+      orangeButton.isUserInteractionEnabled = true
+      blueButton.isUserInteractionEnabled = true
       UIView.animate(withDuration: 0.5) { [weak self] in
          self?.blueButton.text = "Tap!"
          self?.orangeButton.text = "Tap!"

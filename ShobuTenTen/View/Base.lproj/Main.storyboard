@@ -266,25 +266,9 @@
                                 <rect key="frame" x="22" y="66" width="384" height="337.66666666666669"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DEh-Z1-eTB" userLabel="Orange Swipe Area">
-                                <rect key="frame" x="27" y="71" width="374" height="327.66666666666669"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Swipe!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Igf-3P-nBb">
-                                        <rect key="frame" x="114.66666666666666" y="128.33333333333334" width="144.99999999999997" height="71"/>
-                                        <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="50"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" name="OrangeTeam"/>
-                                <constraints>
-                                    <constraint firstItem="Igf-3P-nBb" firstAttribute="centerX" secondItem="DEh-Z1-eTB" secondAttribute="centerX" id="HrZ-Ud-bV4"/>
-                                    <constraint firstItem="Igf-3P-nBb" firstAttribute="centerY" secondItem="DEh-Z1-eTB" secondAttribute="centerY" id="vdM-UN-XYJ"/>
-                                </constraints>
-                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3ko-45-zBC" userLabel="Blue Pulse View">
                                 <rect key="frame" x="22" y="522.66666666666663" width="384" height="347.33333333333337"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="igF-w7-2ku" userLabel="Settings View">
                                 <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
@@ -362,14 +346,12 @@
                         <viewLayoutGuide key="safeArea" id="t69-mB-BAP"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="DEh-Z1-eTB" firstAttribute="top" secondItem="t69-mB-BAP" secondAttribute="top" constant="27" id="0xZ-HY-zGx"/>
                             <constraint firstItem="t69-mB-BAP" firstAttribute="trailing" secondItem="MKF-tg-e1l" secondAttribute="trailing" constant="22" id="4wD-e1-dyI"/>
                             <constraint firstItem="igF-w7-2ku" firstAttribute="top" secondItem="zce-mD-sxK" secondAttribute="top" id="5qH-Zm-eYF"/>
                             <constraint firstItem="mul-no-kpB" firstAttribute="leading" secondItem="zce-mD-sxK" secondAttribute="leading" id="7O5-64-TmK"/>
                             <constraint firstItem="t69-mB-BAP" firstAttribute="bottom" secondItem="3ko-45-zBC" secondAttribute="bottom" constant="22" id="9zv-rh-qRD"/>
                             <constraint firstItem="eHg-LJ-k2Y" firstAttribute="centerY" secondItem="zce-mD-sxK" secondAttribute="centerY" id="F7e-zh-UdO"/>
                             <constraint firstItem="igF-w7-2ku" firstAttribute="leading" secondItem="zce-mD-sxK" secondAttribute="leading" id="HFm-XY-P0J"/>
-                            <constraint firstItem="eHg-LJ-k2Y" firstAttribute="top" secondItem="DEh-Z1-eTB" secondAttribute="bottom" constant="27" id="MIf-E5-LVW"/>
                             <constraint firstItem="t69-mB-BAP" firstAttribute="trailing" secondItem="3ko-45-zBC" secondAttribute="trailing" constant="22" id="MVP-44-FD7"/>
                             <constraint firstItem="MKF-tg-e1l" firstAttribute="top" secondItem="t69-mB-BAP" secondAttribute="top" constant="22" id="PvD-JH-w1w"/>
                             <constraint firstAttribute="trailing" secondItem="eHg-LJ-k2Y" secondAttribute="trailing" id="Qx2-Pg-GDv"/>
@@ -378,14 +360,12 @@
                             <constraint firstItem="mul-no-kpB" firstAttribute="top" secondItem="zce-mD-sxK" secondAttribute="top" id="Y8F-Me-yX7"/>
                             <constraint firstItem="eHg-LJ-k2Y" firstAttribute="leading" secondItem="zce-mD-sxK" secondAttribute="leading" id="ZLo-Pc-E8C"/>
                             <constraint firstItem="twm-vu-OXy" firstAttribute="centerY" secondItem="zce-mD-sxK" secondAttribute="centerY" id="bcM-yp-frZ"/>
-                            <constraint firstItem="t69-mB-BAP" firstAttribute="trailing" secondItem="DEh-Z1-eTB" secondAttribute="trailing" constant="27" id="hKM-yG-if9"/>
                             <constraint firstItem="eHg-LJ-k2Y" firstAttribute="top" secondItem="MKF-tg-e1l" secondAttribute="bottom" constant="22" id="hsM-Lt-7Ht"/>
                             <constraint firstItem="twm-vu-OXy" firstAttribute="centerX" secondItem="zce-mD-sxK" secondAttribute="centerX" id="lpg-kA-RbQ"/>
                             <constraint firstItem="3ko-45-zBC" firstAttribute="leading" secondItem="t69-mB-BAP" secondAttribute="leading" constant="22" id="n2M-Vp-IiL"/>
                             <constraint firstItem="MKF-tg-e1l" firstAttribute="leading" secondItem="t69-mB-BAP" secondAttribute="leading" constant="22" id="vx4-ek-U1J"/>
                             <constraint firstAttribute="trailing" secondItem="mul-no-kpB" secondAttribute="trailing" id="xVE-9f-M5O"/>
                             <constraint firstAttribute="bottom" secondItem="mul-no-kpB" secondAttribute="bottom" id="y1x-Nw-fFN"/>
-                            <constraint firstItem="DEh-Z1-eTB" firstAttribute="leading" secondItem="zce-mD-sxK" secondAttribute="leading" constant="27" id="yjj-TL-01v"/>
                             <constraint firstAttribute="bottom" secondItem="igF-w7-2ku" secondAttribute="bottom" id="zGb-c9-sSS"/>
                         </constraints>
                     </view>
@@ -557,7 +537,7 @@
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="E1K-zF-7ZN" userLabel="Settings Stack View">
-                                <rect key="frame" x="99" y="210.66666666666663" width="230" height="505"/>
+                                <rect key="frame" x="99" y="265" width="230" height="396"/>
                                 <subviews>
                                     <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ny7-xt-6OG">
                                         <rect key="frame" x="0.0" y="0.0" width="230" height="69"/>
@@ -571,7 +551,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sm6-oj-NeF">
-                                        <rect key="frame" x="0.0" y="109.00000000000003" width="230" height="69"/>
+                                        <rect key="frame" x="0.0" y="109" width="230" height="69"/>
                                         <color key="backgroundColor" systemColor="systemGreenColor"/>
                                         <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="40"/>
                                         <state key="normal" title="Sound">
@@ -582,7 +562,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gye-eJ-hTM">
-                                        <rect key="frame" x="0.0" y="218.00000000000003" width="230" height="68.999999999999972"/>
+                                        <rect key="frame" x="0.0" y="218" width="230" height="69"/>
                                         <color key="backgroundColor" systemColor="systemGreenColor"/>
                                         <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="40"/>
                                         <state key="normal" title="Time">
@@ -603,20 +583,8 @@
                                             <action selector="toggleSound:" destination="Zef-KU-cUC" eventType="touchUpInside" id="b3v-Ra-Td5"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BJn-0I-ZFV">
-                                        <rect key="frame" x="0.0" y="436" width="230" height="69"/>
-                                        <color key="backgroundColor" systemColor="systemGreenColor"/>
-                                        <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="40"/>
-                                        <state key="normal" title="Restart">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="restartTapped:" destination="Zef-KU-cUC" eventType="touchUpInside" id="tEC-p3-PPI"/>
-                                        </connections>
-                                    </button>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="BJn-0I-ZFV" firstAttribute="width" secondItem="E1K-zF-7ZN" secondAttribute="width" id="KsH-O7-IHc"/>
                                     <constraint firstItem="Ny7-xt-6OG" firstAttribute="width" secondItem="E1K-zF-7ZN" secondAttribute="width" id="Lll-Jg-qC1"/>
                                     <constraint firstAttribute="width" constant="230" id="Y07-P5-bvz"/>
                                     <constraint firstItem="dXK-Sm-BSI" firstAttribute="width" secondItem="E1K-zF-7ZN" secondAttribute="width" id="eyp-vU-ygE"/>
@@ -675,7 +643,6 @@
                         <outletCollection property="settingsButtons" destination="sm6-oj-NeF" collectionClass="NSMutableArray" id="iVn-Qn-NZ2"/>
                         <outletCollection property="settingsButtons" destination="Gye-eJ-hTM" collectionClass="NSMutableArray" id="l1b-ZW-HmR"/>
                         <outletCollection property="settingsButtons" destination="dXK-Sm-BSI" collectionClass="NSMutableArray" id="tDd-td-rvu"/>
-                        <outletCollection property="settingsButtons" destination="BJn-0I-ZFV" collectionClass="NSMutableArray" id="Rhw-2c-wY6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kjE-Vz-12s" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

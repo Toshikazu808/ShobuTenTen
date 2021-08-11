@@ -10,19 +10,57 @@ import DropDown
 
 class SwipeBattleVC: UIViewController {
    
+   // MARK: - Properties
    @IBOutlet weak var blueScore: UILabel!
    @IBOutlet weak var orangeScore: UILabel!
    @IBOutlet weak var orangeScoreLabel: UILabel!
    @IBOutlet weak var restartButton: UIButton!
    
    @IBOutlet weak var orangePulseView: UIView!
-   private var orangeSwipeView = SwipeView()
-//   @IBOutlet weak var orangeSwipeView: UIView!
-//   private var orangeSwipeLabel = UILabel()
+   private let orangeSwipeView: SwipeView = {
+      let view = SwipeView()
+      view.translatesAutoresizingMaskIntoConstraints = false
+      view.isUserInteractionEnabled = true
+      view.layer.cornerRadius = 8
+      view.layer.masksToBounds = true
+      view.backgroundColor = UIColor(named: "OrangeTeam")
+      view.alpha = 1
+      return view
+   }()
+   private var orangeSwipeLabel: UILabel = {
+      let label = UILabel()
+      label.text = "Swipe!"
+      label.textColor = .white
+      label.alpha = 1
+      label.isHidden = false
+      label.translatesAutoresizingMaskIntoConstraints = false
+      label.isUserInteractionEnabled = false
+      label.font = UIFont(name: "Chalkboard SE", size: 40) ?? .systemFont(ofSize: 40)
+      label.transform = CGAffineTransform(rotationAngle: CGFloat.pi)
+      return label
+   }()
    @IBOutlet weak var bluePulseView: UIView!
-   private var blueSwipeView = SwipeView()
-//   @IBOutlet weak var blueSwipeView: UIView!
-   private var blueSwipeLabel = UILabel()
+   private let blueSwipeView: SwipeView = {
+      let view = SwipeView()
+      view.translatesAutoresizingMaskIntoConstraints = false
+      view.isUserInteractionEnabled = true
+      view.layer.cornerRadius = 8
+      view.layer.masksToBounds = true
+      view.backgroundColor = UIColor(named: "BlueTeam")
+      view.alpha = 1
+      return view
+   }()
+   private var blueSwipeLabel: UILabel = {
+      let label = UILabel()
+      label.text = "Swipe!"
+      label.textColor = .white
+      label.alpha = 1
+      label.isHidden = false
+      label.translatesAutoresizingMaskIntoConstraints = false
+      label.isUserInteractionEnabled = false
+      label.font = UIFont(name: "Chalkboard SE", size: 40) ?? .systemFont(ofSize: 40)
+      return label
+   }()
    
    private var showSettings = false
    @IBOutlet weak var settingsView: UIView!
@@ -44,49 +82,56 @@ class SwipeBattleVC: UIViewController {
    private var blueTeam = BlueTeam()
    private var orangeTeam = OrangeTeam()
    
+   
+   // MARK: - Lifecycle
    override func viewDidLoad() {
       super.viewDidLoad()
-      setupMainView()
+      setupOrangeTeam()
+      setupBlueTeam()
+      setupScoreView()
       setupSettingsView()
    }
    
-   private func setupMainView() {
-//      view.addSubview(orangeSwipeView)
-      // TODO: place this on top of the orangePulseView
-      orangeSwipeView.isUserInteractionEnabled = true
-      orangeSwipeView.layer.cornerRadius = 8
-      orangeSwipeView.layer.masksToBounds = true
-      orangePulseView.layer.cornerRadius = 8
-      orangePulseView.alpha = 0
-//      orangeSwipeLabel.transform = CGAffineTransform(rotationAngle: CGFloat.pi)
-      orangeScore.transform = CGAffineTransform(rotationAngle: CGFloat.pi)
-      orangeScoreLabel.transform = CGAffineTransform(rotationAngle: CGFloat.pi)
-      
-      view.addSubview(blueSwipeView)
-//      NSLayoutConstraint.activate([
-//         blueSwipeView.topAnchor.constraint(equalTo: bluePulseView.topAnchor, constant: 5),
-//         blueSwipeView.leadingAnchor.constraint(equalTo: bluePulseView.leadingAnchor, constant: 5),
-//         blueSwipeView.trailingAnchor.constraint(equalTo: bluePulseView.trailingAnchor, constant: -5),
-//         blueSwipeView.bottomAnchor.constraint(equalTo: bluePulseView.bottomAnchor, constant: -5)
-//      ])
+   private func setupOrangeTeam() {
+      view.addSubview(orangeSwipeView)
+      orangeSwipeView.frame = orangePulseView.frame
       NSLayoutConstraint.activate([
-         blueSwipeView.topAnchor.constraint(equalTo: bluePulseView.topAnchor),
-         blueSwipeView.leadingAnchor.constraint(equalTo: bluePulseView.leadingAnchor),
-         blueSwipeView.trailingAnchor.constraint(equalTo: bluePulseView.trailingAnchor),
-         blueSwipeView.bottomAnchor.constraint(equalTo: bluePulseView.bottomAnchor)
+         orangeSwipeView.leadingAnchor.constraint(equalTo: orangePulseView.leadingAnchor, constant: 5),
+         orangeSwipeView.trailingAnchor.constraint(equalTo: orangePulseView.trailingAnchor, constant: -5),
+         orangeSwipeView.topAnchor.constraint(equalTo: orangePulseView.topAnchor, constant: 5),
+         orangeSwipeView.bottomAnchor.constraint(equalTo: orangePulseView.bottomAnchor, constant: -5),
       ])
       
-      // TODO: place this on top of the bluePulseView
-//      blueSwipeView.addSubview(blueSwipeLabel)
-      blueSwipeView.isUserInteractionEnabled = true
-      blueSwipeView.layer.cornerRadius = 8
-      blueSwipeView.layer.masksToBounds = true
-      blueSwipeView.backgroundColor = UIColor(named: "BlueTeam")
-      blueSwipeView.alpha = 1
-      
+      orangeSwipeView.addSubview(orangeSwipeLabel)
+      NSLayoutConstraint.activate([
+         orangeSwipeLabel.centerXAnchor.constraint(equalTo: orangeSwipeView.centerXAnchor),
+         orangeSwipeLabel.centerYAnchor.constraint(equalTo: orangeSwipeView.centerYAnchor)
+      ])
+      orangePulseView.layer.cornerRadius = 8
+      orangePulseView.alpha = 0
+   }
+   
+   private func setupBlueTeam() {
+      view.addSubview(blueSwipeView)
+      blueSwipeView.frame = bluePulseView.frame
+      NSLayoutConstraint.activate([
+         blueSwipeView.leadingAnchor.constraint(equalTo: bluePulseView.leadingAnchor, constant: 5),
+         blueSwipeView.trailingAnchor.constraint(equalTo: bluePulseView.trailingAnchor, constant: -5),
+         blueSwipeView.topAnchor.constraint(equalTo: bluePulseView.topAnchor, constant: 5),
+         blueSwipeView.bottomAnchor.constraint(equalTo: bluePulseView.bottomAnchor, constant: -5),
+      ])
+      blueSwipeView.addSubview(blueSwipeLabel)
+      NSLayoutConstraint.activate([
+         blueSwipeLabel.centerXAnchor.constraint(equalTo: blueSwipeView.centerXAnchor),
+         blueSwipeLabel.centerYAnchor.constraint(equalTo: blueSwipeView.centerYAnchor)
+      ])
       bluePulseView.layer.cornerRadius = 8
       bluePulseView.alpha = 0
-      
+   }
+   
+   private func setupScoreView() {
+      orangeScore.transform = CGAffineTransform(rotationAngle: CGFloat.pi)
+      orangeScoreLabel.transform = CGAffineTransform(rotationAngle: CGFloat.pi)
       restartButton.transform = CGAffineTransform(rotationAngle: CGFloat.pi / 2)
       restartButton.layer.cornerRadius = restartButton.frame.width / 2
    }

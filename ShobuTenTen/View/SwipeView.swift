@@ -13,7 +13,7 @@ class SwipeView: UIView {
    override func draw(_ rect: CGRect) {
       super.draw(rect)
       guard let context = UIGraphicsGetCurrentContext() else { return }
-      context.setStrokeColor(UIColor.blue.cgColor)
+      context.setStrokeColor(UIColor.white.cgColor)
       context.setLineWidth(7)
       context.setLineCap(.butt)
       lines.forEach { line in

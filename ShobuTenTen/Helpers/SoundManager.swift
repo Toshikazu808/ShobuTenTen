@@ -70,7 +70,6 @@ final class SoundManager {
    }
       
    public func playAttackSound() {
-      print(#function)
       if Global.shared.soundIsOn {
          soundEffectRotater += 1
          if soundEffectRotater > 4 {
