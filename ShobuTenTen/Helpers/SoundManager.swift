@@ -19,13 +19,6 @@ final class SoundManager {
    private var effectLayer3: AVAudioPlayer?
    private var effectLayer4: AVAudioPlayer?
    private var soundEffectRotater = 0
-
-   let samurai = "Samurai"
-   let arcade = "Arcade"
-   let retro = "Retro"
-   
-   let pop = "Pop"
-   let sword = "Sword"
    
    let center = UNUserNotificationCenter.current()
    let songDidEnd = NSNotification.Name.AVPlayerItemDidPlayToEndTime
@@ -36,18 +29,9 @@ final class SoundManager {
       "Arcade": 184,
       "Retro": 220
    ]
-   var soundIsOn: Bool {
-      return Constants.defaults.bool(forKey: Constants.soundOn)
-   }
-   var currentSong: String {
-      return Constants.defaults.string(forKey: Constants.savedSong) ?? samurai
-   }
-   var currentSound: String {
-      return Constants.defaults.string(forKey: Constants.savedSound) ?? sword
-   }
       
    public func changeAudio() {
-      if soundIsOn {
+      if Global.shared.soundIsOn {
          playMusic()
       } else {
          stopMusic()
@@ -66,7 +50,7 @@ final class SoundManager {
    }
    
    @objc private func playMp3() {
-      if let url = Bundle.main.url(forResource: currentSong, withExtension: "mp3") {
+      if let url = Bundle.main.url(forResource: Global.shared.currentSong, withExtension: "mp3") {
          let song = AVPlayerItem(url: url)
          do {
             songPlayer = try AVAudioPlayer(contentsOf: url)
@@ -76,7 +60,7 @@ final class SoundManager {
             print("Error playing song: \(error)")
          }
       } else {
-         print("Unable to create url for song: \(currentSong)")
+         print("Unable to create url for song: \(Global.shared.currentSong)")
       }
    }
    
@@ -87,7 +71,7 @@ final class SoundManager {
       
    public func playAttackSound() {
       print(#function)
-      if Constants.soundIsOn {
+      if Global.shared.soundIsOn {
          soundEffectRotater += 1
          if soundEffectRotater > 4 {
             soundEffectRotater = 0
@@ -110,7 +94,7 @@ final class SoundManager {
    }
    
    private func playSoundLayer0() {
-      if let url = Bundle.main.url(forResource: currentSound, withExtension: "m4a") {
+      if let url = Bundle.main.url(forResource: Global.shared.currentSound, withExtension: "m4a") {
          do {
             effectLayer0 = try AVAudioPlayer(contentsOf: url)
             effectLayer0?.play()
@@ -118,12 +102,12 @@ final class SoundManager {
             print("Error playing sound effect: \(error)")
          }
       } else {
-         print("Unable to create url for sound: \(currentSound)")
+         print("Unable to create url for sound: \(Global.shared.currentSound)")
       }
    }
    
    private func playSoundLayer1() {
-      if let url = Bundle.main.url(forResource: currentSound, withExtension: "m4a") {
+      if let url = Bundle.main.url(forResource: Global.shared.currentSound, withExtension: "m4a") {
          do {
             effectLayer1 = try AVAudioPlayer(contentsOf: url)
             effectLayer1?.play()
@@ -131,12 +115,12 @@ final class SoundManager {
             print("Error playing sound effect: \(error)")
          }
       } else {
-         print("Unable to create url for sound: \(currentSound)")
+         print("Unable to create url for sound: \(Global.shared.currentSound)")
       }
    }
    
    private func playSoundLayer2() {
-      if let url = Bundle.main.url(forResource: currentSound, withExtension: "m4a") {
+      if let url = Bundle.main.url(forResource: Global.shared.currentSound, withExtension: "m4a") {
          do {
             effectLayer2 = try AVAudioPlayer(contentsOf: url)
             effectLayer2?.play()
@@ -144,12 +128,12 @@ final class SoundManager {
             print("Error playing sound effect: \(error)")
          }
       } else {
-         print("Unable to create url for sound: \(currentSound)")
+         print("Unable to create url for sound: \(Global.shared.currentSound)")
       }
    }
    
    private func playSoundLayer3() {
-      if let url = Bundle.main.url(forResource: currentSound, withExtension: "m4a") {
+      if let url = Bundle.main.url(forResource: Global.shared.currentSound, withExtension: "m4a") {
          do {
             effectLayer3 = try AVAudioPlayer(contentsOf: url)
             effectLayer3?.play()
@@ -157,12 +141,12 @@ final class SoundManager {
             print("Error playing sound effect: \(error)")
          }
       } else {
-         print("Unable to create url for sound: \(currentSound)")
+         print("Unable to create url for sound: \(Global.shared.currentSound)")
       }
    }
    
    private func playSoundLayer4() {
-      if let url = Bundle.main.url(forResource: currentSound, withExtension: "m4a") {
+      if let url = Bundle.main.url(forResource: Global.shared.currentSound, withExtension: "m4a") {
          do {
             effectLayer4 = try AVAudioPlayer(contentsOf: url)
             effectLayer4?.play()
@@ -170,7 +154,7 @@ final class SoundManager {
             print("Error playing sound effect: \(error)")
          }
       } else {
-         print("Unable to create url for sound: \(currentSound)")
+         print("Unable to create url for sound: \(Global.shared.currentSound)")
       }
    }
 }

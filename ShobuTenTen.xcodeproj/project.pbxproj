@@ -24,6 +24,11 @@
 		BC932D3926C1EC2900AA045F /* Sword.m4a in Resources */ = {isa = PBXBuildFile; fileRef = BC932D3826C1EC2900AA045F /* Sword.m4a */; };
 		BC932D3A26C1EC2D00AA045F /* Pop.m4a in Resources */ = {isa = PBXBuildFile; fileRef = BC932D3626C1EBF300AA045F /* Pop.m4a */; };
 		BC932D3D26C1ECD200AA045F /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC932D3C26C1ECD200AA045F /* SoundManager.swift */; };
+		BCBFEE0C26C3315400A46F01 /* SwipeBattleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCBFEE0B26C3315400A46F01 /* SwipeBattleVC.swift */; };
+		BCCEF1C426C384B9007C3402 /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCEF1C326C384B9007C3402 /* Global.swift */; };
+		BCCEF1C726C38D5C007C3402 /* ChooseGameCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCEF1C526C38D5C007C3402 /* ChooseGameCell.swift */; };
+		BCCEF1C826C38D5C007C3402 /* ChooseGameCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCCEF1C626C38D5C007C3402 /* ChooseGameCell.xib */; };
+		BCCEF1CA26C3A617007C3402 /* SwipeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCEF1C926C3A617007C3402 /* SwipeView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +53,11 @@
 		BC932D3626C1EBF300AA045F /* Pop.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = Pop.m4a; sourceTree = "<group>"; };
 		BC932D3826C1EC2900AA045F /* Sword.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = Sword.m4a; sourceTree = "<group>"; };
 		BC932D3C26C1ECD200AA045F /* SoundManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
+		BCBFEE0B26C3315400A46F01 /* SwipeBattleVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeBattleVC.swift; sourceTree = "<group>"; };
+		BCCEF1C326C384B9007C3402 /* Global.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
+		BCCEF1C526C38D5C007C3402 /* ChooseGameCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseGameCell.swift; sourceTree = "<group>"; };
+		BCCEF1C626C38D5C007C3402 /* ChooseGameCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChooseGameCell.xib; sourceTree = "<group>"; };
+		BCCEF1C926C3A617007C3402 /* SwipeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +128,7 @@
 			children = (
 				BC3D0EAD26C076FF0010918E /* HomeVC.swift */,
 				BC7B4AF526C134D100B64F78 /* TapBattleVC.swift */,
+				BCBFEE0B26C3315400A46F01 /* SwipeBattleVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -127,6 +138,9 @@
 			children = (
 				BC3D0EB426C077000010918E /* LaunchScreen.storyboard */,
 				BC3D0EAF26C076FF0010918E /* Main.storyboard */,
+				BCCEF1C526C38D5C007C3402 /* ChooseGameCell.swift */,
+				BCCEF1C626C38D5C007C3402 /* ChooseGameCell.xib */,
+				BCCEF1C926C3A617007C3402 /* SwipeView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -165,6 +179,7 @@
 				BC7B4AFE26C1514000B64F78 /* Constants.swift */,
 				BC932D2D26C1B62600AA045F /* Extensions.swift */,
 				BC932D3C26C1ECD200AA045F /* SoundManager.swift */,
+				BCCEF1C326C384B9007C3402 /* Global.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -231,6 +246,7 @@
 				BC932D3326C1EB9800AA045F /* Arcade.mp3 in Resources */,
 				BC3D0EB626C077000010918E /* LaunchScreen.storyboard in Resources */,
 				BC3D0EB326C077000010918E /* Assets.xcassets in Resources */,
+				BCCEF1C826C38D5C007C3402 /* ChooseGameCell.xib in Resources */,
 				BC3D0EB126C076FF0010918E /* Main.storyboard in Resources */,
 				BC932D3126C1EB9000AA045F /* Samurai.mp3 in Resources */,
 				BC932D3526C1EBA000AA045F /* Retro.mp3 in Resources */,
@@ -295,6 +311,10 @@
 				BC7B4AFD26C13F4400B64F78 /* Players.swift in Sources */,
 				BC3D0EAC26C076FF0010918E /* SceneDelegate.swift in Sources */,
 				BC7B4AFF26C1514000B64F78 /* Constants.swift in Sources */,
+				BCCEF1CA26C3A617007C3402 /* SwipeView.swift in Sources */,
+				BCBFEE0C26C3315400A46F01 /* SwipeBattleVC.swift in Sources */,
+				BCCEF1C426C384B9007C3402 /* Global.swift in Sources */,
+				BCCEF1C726C38D5C007C3402 /* ChooseGameCell.swift in Sources */,
 				BC932D2E26C1B62600AA045F /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

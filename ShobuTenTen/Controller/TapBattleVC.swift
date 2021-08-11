@@ -12,16 +12,17 @@ class TapBattleVC: UIViewController {
    @IBOutlet weak var orangeButton: UILabel!
    @IBOutlet weak var blueButton: UILabel!
    
-   @IBOutlet weak var bluePulseView: UIView!
    @IBOutlet weak var orangePulseView: UIView!
+   @IBOutlet weak var bluePulseView: UIView!
    
+   @IBOutlet weak var orangeScore: UILabel!
    @IBOutlet weak var blueScore: UILabel!
    @IBOutlet weak var orangeScoreLabel: UILabel!
-   @IBOutlet weak var orangeScore: UILabel!
-   @IBOutlet weak var restartButtonSmall: UIButton!
+   @IBOutlet weak var restartButton: UIButton!
    
    private var showSettings = false
    @IBOutlet weak var settingsView: UIView!
+   @IBOutlet weak var settingsStackView: UIStackView!
    @IBOutlet var settingsButtons: [UIButton]!
    private let toggleSoundIndex = 3
    
@@ -44,7 +45,6 @@ class TapBattleVC: UIViewController {
       super.viewDidLoad()
       setupMainView()
       setupSettingsView()
-//      setupDefaults()
       setupDropDownViews()
    }
    
@@ -81,8 +81,8 @@ class TapBattleVC: UIViewController {
       bluePulseView.layer.cornerRadius = 8
       bluePulseView.alpha = 0      
       
-      restartButtonSmall.transform = CGAffineTransform(rotationAngle: CGFloat.pi / 2)
-      restartButtonSmall.layer.cornerRadius = restartButtonSmall.frame.width / 2
+      restartButton.transform = CGAffineTransform(rotationAngle: CGFloat.pi / 2)
+      restartButton.layer.cornerRadius = restartButton.frame.width / 2
    }
    
    private func setupSettingsView() {
@@ -91,6 +91,8 @@ class TapBattleVC: UIViewController {
       let tap = UITapGestureRecognizer(target: self, action: #selector(backgroundTapped))
       settingsView.addGestureRecognizer(tap)
       settingsView.isUserInteractionEnabled = true
+      settingsStackView.isHidden = true
+      settingsStackView.alpha = 0
       
       settingsButtons.forEach { button in
          button.isHidden = true
@@ -98,6 +100,13 @@ class TapBattleVC: UIViewController {
          button.layer.cornerRadius = 8
          button.layer.borderWidth = 2.5
          button.layer.borderColor = UIColor.white.cgColor
+      }
+      if Global.shared.soundIsOn {
+         settingsButtons[toggleSoundIndex].backgroundColor = .systemGreen
+         settingsButtons[toggleSoundIndex].setTitle("Sound on", for: .normal)
+      } else {
+         settingsButtons[toggleSoundIndex].backgroundColor = .systemRed
+         settingsButtons[toggleSoundIndex].setTitle("Sound off", for: .normal)
       }
    }
    
@@ -176,10 +185,12 @@ class TapBattleVC: UIViewController {
    private func setGameFinished() {
       timer.invalidate()
       gameStarted = false
+      blueButton.isUserInteractionEnabled = false
       bluePulseView.backgroundColor = .red
       bluePulseView.alpha = 1
+      orangeButton.isUserInteractionEnabled = false
       orangePulseView.backgroundColor = .red
-      orangePulseView.alpha = 1
+      orangePulseView.alpha = 1      
       
       if blueTeam.score > orangeTeam.score {
          blueButton.text = Constants.winner
@@ -202,6 +213,7 @@ class TapBattleVC: UIViewController {
       toggleSettingsViews()
       UIView.animate(withDuration: 0.4) { [weak self] in
          self?.settingsView.alpha = 0.5
+         self?.settingsStackView.alpha = 1
          self?.settingsButtons.forEach { button in
             button.alpha = 1
          }
@@ -211,6 +223,7 @@ class TapBattleVC: UIViewController {
    @objc private func backgroundTapped() {
       UIView.animate(withDuration: 0.4) { [weak self] in
          self?.settingsView.alpha = 0
+         self?.settingsStackView.alpha = 0
          self?.settingsButtons.forEach { button in
             button.alpha = 0
          }
@@ -222,12 +235,14 @@ class TapBattleVC: UIViewController {
    private func toggleSettingsViews() {
       if showSettings {
          settingsView.isHidden = true
+         settingsStackView.isHidden = true
          settingsButtons.forEach { button in
             button.isHidden = true
          }
          showSettings.toggle()
       } else {
          settingsView.isHidden = false
+         settingsStackView.isHidden = false
          settingsButtons.forEach { button in
             button.isHidden = false
          }
@@ -239,7 +254,6 @@ class TapBattleVC: UIViewController {
       songDropDown.show()
       songDropDown.selectionAction = { [weak self] (index: Int, item: String) in
          guard let _ = self else { return }
-         sender.setTitle(item, for: .normal)
          Constants.defaults.setValue(item, forKey: Constants.savedSong)
          SoundManager.shared.changeAudio()
       }
@@ -249,7 +263,6 @@ class TapBattleVC: UIViewController {
       soundDropDown.show()
       soundDropDown.selectionAction = { [weak self] (index: Int, item: String) in
          guard let _ = self else { return }
-         sender.setTitle(item, for: .normal)
          Constants.defaults.setValue(item, forKey: Constants.savedSound)
          SoundManager.shared.playAttackSound()
       }
@@ -259,18 +272,19 @@ class TapBattleVC: UIViewController {
       timeDropDown.show()
       timeDropDown.selectionAction = { [weak self] (index: Int, item: String) in
          guard let _ = self else { return }
-         sender.setTitle(item, for: .normal)
          Constants.defaults.setValue(item, forKey: Constants.gameTimeKey)
       }
    }
    
    @IBAction func toggleSound(_ sender: UIButton) {
-      if Constants.defaults.bool(forKey: Constants.soundOn) {
+      if Global.shared.soundIsOn {
          Constants.defaults.setValue(false, forKey: Constants.soundOn)
          settingsButtons[toggleSoundIndex].backgroundColor = .systemRed
+         settingsButtons[toggleSoundIndex].setTitle("Sound off", for: .normal)
       } else {
          Constants.defaults.setValue(true, forKey: Constants.soundOn)
          settingsButtons[toggleSoundIndex].backgroundColor = .systemGreen
+         settingsButtons[toggleSoundIndex].setTitle("Sound on", for: .normal)
       }
       SoundManager.shared.changeAudio()
    }
@@ -289,5 +303,4 @@ class TapBattleVC: UIViewController {
          self?.orangePulseView.backgroundColor = .white
       }
    }
-   
 }

@@ -1,54 +1,104 @@
 //
-//  ViewController.swift
+//  SwipeBattleVC.swift
 //  ShobuTenTen
 //
-//  Created by Ryan Kanno on 8/8/21.
+//  Created by Ryan Kanno on 8/10/21.
 //
 
 import UIKit
-import AVFoundation
 import DropDown
 
-class HomeVC: UIViewController {
+class SwipeBattleVC: UIViewController {
    
-   @IBOutlet weak var tableView: UITableView!
+   @IBOutlet weak var blueScore: UILabel!
+   @IBOutlet weak var orangeScore: UILabel!
+   @IBOutlet weak var orangeScoreLabel: UILabel!
+   @IBOutlet weak var restartButton: UIButton!
+   
+   @IBOutlet weak var orangePulseView: UIView!
+   private var orangeSwipeView = SwipeView()
+//   @IBOutlet weak var orangeSwipeView: UIView!
+//   private var orangeSwipeLabel = UILabel()
+   @IBOutlet weak var bluePulseView: UIView!
+   private var blueSwipeView = SwipeView()
+//   @IBOutlet weak var blueSwipeView: UIView!
+   private var blueSwipeLabel = UILabel()
+   
    private var showSettings = false
    @IBOutlet weak var settingsView: UIView!
+   @IBOutlet weak var settingsStackView: UIStackView!
    @IBOutlet var settingsButtons: [UIButton]!
    private let toggleSoundIndex = 3
+   
    private let songDropDown = DropDown()
    private let soundDropDown = DropDown()
    private let timeDropDown = DropDown()
    private var dropCollection = [DropDown]()
-   private let gameSelections = ["Tap Battle", "Swipe Battle"]
+   
+   private var secondsPassed = 0
+   private var gameDuration: Int {
+      return Constants.defaults.string(forKey: Constants.gameTimeKey)?.getNumber() ?? 5
+   }
+   private var timer = Timer()
+   private var gameStarted = false
+   private var blueTeam = BlueTeam()
+   private var orangeTeam = OrangeTeam()
    
    override func viewDidLoad() {
       super.viewDidLoad()
-      SoundManager.shared.changeAudio()
       setupMainView()
-      setupSettingsViews()
-      setupDropDownViews()
-   }
-   
-   override func viewWillAppear(_ animated: Bool) {
-      super.viewWillAppear(animated)
-      self.navigationController?.isNavigationBarHidden = true
+      setupSettingsView()
    }
    
    private func setupMainView() {
-      tableView.delegate = self
-      tableView.dataSource = self
-      tableView.backgroundColor = .clear
-      tableView.layer.cornerRadius = 8
-      tableView.register(UINib(nibName: ChooseGameCell.id, bundle: nil), forCellReuseIdentifier: ChooseGameCell.id)
+//      view.addSubview(orangeSwipeView)
+      // TODO: place this on top of the orangePulseView
+      orangeSwipeView.isUserInteractionEnabled = true
+      orangeSwipeView.layer.cornerRadius = 8
+      orangeSwipeView.layer.masksToBounds = true
+      orangePulseView.layer.cornerRadius = 8
+      orangePulseView.alpha = 0
+//      orangeSwipeLabel.transform = CGAffineTransform(rotationAngle: CGFloat.pi)
+      orangeScore.transform = CGAffineTransform(rotationAngle: CGFloat.pi)
+      orangeScoreLabel.transform = CGAffineTransform(rotationAngle: CGFloat.pi)
+      
+      view.addSubview(blueSwipeView)
+//      NSLayoutConstraint.activate([
+//         blueSwipeView.topAnchor.constraint(equalTo: bluePulseView.topAnchor, constant: 5),
+//         blueSwipeView.leadingAnchor.constraint(equalTo: bluePulseView.leadingAnchor, constant: 5),
+//         blueSwipeView.trailingAnchor.constraint(equalTo: bluePulseView.trailingAnchor, constant: -5),
+//         blueSwipeView.bottomAnchor.constraint(equalTo: bluePulseView.bottomAnchor, constant: -5)
+//      ])
+      NSLayoutConstraint.activate([
+         blueSwipeView.topAnchor.constraint(equalTo: bluePulseView.topAnchor),
+         blueSwipeView.leadingAnchor.constraint(equalTo: bluePulseView.leadingAnchor),
+         blueSwipeView.trailingAnchor.constraint(equalTo: bluePulseView.trailingAnchor),
+         blueSwipeView.bottomAnchor.constraint(equalTo: bluePulseView.bottomAnchor)
+      ])
+      
+      // TODO: place this on top of the bluePulseView
+//      blueSwipeView.addSubview(blueSwipeLabel)
+      blueSwipeView.isUserInteractionEnabled = true
+      blueSwipeView.layer.cornerRadius = 8
+      blueSwipeView.layer.masksToBounds = true
+      blueSwipeView.backgroundColor = UIColor(named: "BlueTeam")
+      blueSwipeView.alpha = 1
+      
+      bluePulseView.layer.cornerRadius = 8
+      bluePulseView.alpha = 0
+      
+      restartButton.transform = CGAffineTransform(rotationAngle: CGFloat.pi / 2)
+      restartButton.layer.cornerRadius = restartButton.frame.width / 2
    }
    
-   private func setupSettingsViews() {
+   private func setupSettingsView() {
       settingsView.isHidden = true
       settingsView.alpha = 0
       let tap = UITapGestureRecognizer(target: self, action: #selector(backgroundTapped))
       settingsView.addGestureRecognizer(tap)
       settingsView.isUserInteractionEnabled = true
+      settingsStackView.isHidden = true
+      settingsStackView.alpha = 0
       
       settingsButtons.forEach { button in
          button.isHidden = true
@@ -57,7 +107,13 @@ class HomeVC: UIViewController {
          button.layer.borderWidth = 2.5
          button.layer.borderColor = UIColor.white.cgColor
       }
-      
+      if Global.shared.soundIsOn {
+         settingsButtons[toggleSoundIndex].backgroundColor = .systemGreen
+         settingsButtons[toggleSoundIndex].setTitle("Sound on", for: .normal)
+      } else {
+         settingsButtons[toggleSoundIndex].backgroundColor = .systemRed
+         settingsButtons[toggleSoundIndex].setTitle("Sound off", for: .normal)
+      }
    }
    
    private func setupDropDownViews() {
@@ -82,11 +138,16 @@ class HomeVC: UIViewController {
       }
    }
    
+   @IBAction func backButtonTapped(_ sender: UIButton) {
+      self.navigationController?.popViewController(animated: true)
+   }
+   
    // MARK: - Settings
    @IBAction func settingsTapped(_ sender: UIButton) {
       toggleSettingsViews()
       UIView.animate(withDuration: 0.4) { [weak self] in
          self?.settingsView.alpha = 0.5
+         self?.settingsStackView.alpha = 1
          self?.settingsButtons.forEach { button in
             button.alpha = 1
          }
@@ -96,6 +157,7 @@ class HomeVC: UIViewController {
    @objc private func backgroundTapped() {
       UIView.animate(withDuration: 0.4) { [weak self] in
          self?.settingsView.alpha = 0
+         self?.settingsStackView.alpha = 0
          self?.settingsButtons.forEach { button in
             button.alpha = 0
          }
@@ -107,12 +169,14 @@ class HomeVC: UIViewController {
    private func toggleSettingsViews() {
       if showSettings {
          settingsView.isHidden = true
+         settingsStackView.isHidden = true
          settingsButtons.forEach { button in
             button.isHidden = true
          }
          showSettings.toggle()
       } else {
          settingsView.isHidden = false
+         settingsStackView.isHidden = false
          settingsButtons.forEach { button in
             button.isHidden = false
          }
@@ -129,7 +193,7 @@ class HomeVC: UIViewController {
       }
    }
    
-   @IBAction func chooseSoundEffectTapped(_ sender: UIButton) {
+   @IBAction func chooseSoundTapped(_ sender: UIButton) {
       soundDropDown.show()
       soundDropDown.selectionAction = { [weak self] (index: Int, item: String) in
          guard let _ = self else { return }
@@ -150,32 +214,27 @@ class HomeVC: UIViewController {
       if Global.shared.soundIsOn {
          Constants.defaults.setValue(false, forKey: Constants.soundOn)
          settingsButtons[toggleSoundIndex].backgroundColor = .systemRed
+         settingsButtons[toggleSoundIndex].setTitle("Sound off", for: .normal)
       } else {
          Constants.defaults.setValue(true, forKey: Constants.soundOn)
          settingsButtons[toggleSoundIndex].backgroundColor = .systemGreen
+         settingsButtons[toggleSoundIndex].setTitle("Sound on", for: .normal)
       }
       SoundManager.shared.changeAudio()
    }
-}
-
-extension HomeVC: UITableViewDelegate, UITableViewDataSource {
-   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-      return gameSelections.count
-   }
    
-   func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-      return ChooseGameCell.preferredHeight
-   }
-   
-   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-      guard let cell = tableView.dequeueReusableCell(withIdentifier: ChooseGameCell.id, for: indexPath) as? ChooseGameCell else {
-         fatalError()
+   @IBAction func restartTapped(_ sender: UIButton) {
+      gameStarted = false
+      secondsPassed = 0
+      blueTeam.score = 0
+      orangeTeam.score = 0
+      UIView.animate(withDuration: 0.5) { [weak self] in
+//         self?.orangeSwipeLabel.isHidden = false
+//         self?.blueSwipeLabel.isHidden = false
+         self?.bluePulseView.alpha = 0
+         self?.bluePulseView.backgroundColor = .white
+         self?.orangePulseView.alpha = 0
+         self?.orangePulseView.backgroundColor = .white
       }
-      cell.configure(gameSelections[indexPath.row])
-      return cell
-   }
-   
-   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-      performSegue(withIdentifier: Constants.segues[indexPath.row], sender: nil)
    }
 }
