@@ -20,10 +20,12 @@ class HomeVC: UIViewController {
    private let soundDropDown = DropDown()
    private let timeDropDown = DropDown()
    private var dropCollection = [DropDown]()
-   private let gameSelections = ["Tap Battle", "Swipe Battle"]
+   private let gameSelections = ["Tap Battle", "Swipe Battle", "Dots", "Test"]
+   private let soundManager = SoundManager()
    
    override func viewDidLoad() {
       super.viewDidLoad()
+      soundManager.delegate = self
       SoundManager.shared.changeAudio()
       setupMainView()
       setupSettingsViews()
@@ -57,7 +59,6 @@ class HomeVC: UIViewController {
          button.layer.borderWidth = 2.5
          button.layer.borderColor = UIColor.white.cgColor
       }
-      
    }
    
    private func setupDropDownViews() {
@@ -177,5 +178,17 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
    
    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
       performSegue(withIdentifier: Constants.segues[indexPath.row], sender: nil)
+   }
+}
+
+extension HomeVC: SoundManagerDelegate {
+   func setSoundOnUI() {
+      settingsButtons[toggleSoundIndex].backgroundColor = .systemGreen
+      settingsButtons[toggleSoundIndex].setTitle("Sound on", for: .normal)
+   }
+   
+   func setSoundOffUI() {
+      settingsButtons[toggleSoundIndex].backgroundColor = .systemRed
+      settingsButtons[toggleSoundIndex].setTitle("Sound off", for: .normal)
    }
 }

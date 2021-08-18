@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SettingsStack" customModule="ShobuTenTen" customModuleProvider="target"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="oOQ-JS-Ea8" customClass="SettingsStack" customModule="ShobuTenTen" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="HLK-eD-o9D">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L98-Uj-LsB">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="194"/>
+                            <color key="backgroundColor" systemColor="systemGreenColor"/>
+                            <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="40"/>
+                            <state key="normal" title="Song">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <connections>
+                                <action selector="songButtonTapped:" destination="oOQ-JS-Ea8" eventType="touchUpInside" id="cvY-Vl-cgj"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pjf-x3-JJf">
+                            <rect key="frame" x="0.0" y="234" width="414" height="194"/>
+                            <color key="backgroundColor" systemColor="systemGreenColor"/>
+                            <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="40"/>
+                            <state key="normal" title="Sound">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <connections>
+                                <action selector="soundButtonTapped:" destination="oOQ-JS-Ea8" eventType="touchUpInside" id="RPH-IX-5qL"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OCK-f8-a0j">
+                            <rect key="frame" x="0.0" y="468" width="414" height="194"/>
+                            <color key="backgroundColor" systemColor="systemGreenColor"/>
+                            <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="40"/>
+                            <state key="normal" title="Time">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <connections>
+                                <action selector="timeButtonTapped:" destination="oOQ-JS-Ea8" eventType="touchUpInside" id="GCy-jD-w3h"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9gi-2h-UGA">
+                            <rect key="frame" x="0.0" y="702" width="414" height="194"/>
+                            <color key="backgroundColor" systemColor="systemGreenColor"/>
+                            <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="40"/>
+                            <state key="normal" title="Sound on">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <connections>
+                                <action selector="toggleSound:" destination="oOQ-JS-Ea8" eventType="touchUpInside" id="BRF-ju-pce"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="OCK-f8-a0j" firstAttribute="width" secondItem="HLK-eD-o9D" secondAttribute="width" id="KWI-WB-5aI"/>
+                        <constraint firstItem="9gi-2h-UGA" firstAttribute="width" secondItem="HLK-eD-o9D" secondAttribute="width" id="h72-Ol-vUy"/>
+                        <constraint firstItem="Pjf-x3-JJf" firstAttribute="width" secondItem="HLK-eD-o9D" secondAttribute="width" id="pbf-h4-z6Y"/>
+                        <constraint firstItem="L98-Uj-LsB" firstAttribute="width" secondItem="HLK-eD-o9D" secondAttribute="width" id="rCz-oS-z5D"/>
+                    </constraints>
+                </stackView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="yUv-y6-uug"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="HLK-eD-o9D" secondAttribute="trailing" id="02T-lz-Sij"/>
+                <constraint firstItem="HLK-eD-o9D" firstAttribute="leading" secondItem="oOQ-JS-Ea8" secondAttribute="leading" id="K8n-Cc-wPO"/>
+                <constraint firstItem="HLK-eD-o9D" firstAttribute="top" secondItem="oOQ-JS-Ea8" secondAttribute="top" id="az9-Iv-pin"/>
+                <constraint firstAttribute="bottom" secondItem="HLK-eD-o9D" secondAttribute="bottom" id="bsE-tW-ef1"/>
+            </constraints>
+            <connections>
+                <outlet property="songButton" destination="L98-Uj-LsB" id="HYV-Lx-sjc"/>
+                <outlet property="soundButton" destination="Pjf-x3-JJf" id="Lc4-7a-drQ"/>
+                <outlet property="timeButton" destination="OCK-f8-a0j" id="xVf-h0-0TX"/>
+                <outlet property="toggleSoundButton" destination="9gi-2h-UGA" id="A1m-oS-fHH"/>
+            </connections>
+            <point key="canvasLocation" x="77" y="41"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

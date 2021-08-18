@@ -9,15 +9,21 @@ import Foundation
 import AVFoundation
 import UserNotifications
 
+protocol SoundManagerDelegate: AnyObject {
+   func setSoundOnUI()
+   func setSoundOffUI()
+}
+
 final class SoundManager {
    static let shared = SoundManager()
-   private init() {}
+   weak var delegate: SoundManagerDelegate?
    private var songPlayer: AVAudioPlayer?
    private var effectLayer0: AVAudioPlayer?
    private var effectLayer1: AVAudioPlayer?
    private var effectLayer2: AVAudioPlayer?
    private var effectLayer3: AVAudioPlayer?
    private var effectLayer4: AVAudioPlayer?
+   private var countDown: AVAudioPlayer?
    private var soundEffectRotater = 0
    
    let center = UNUserNotificationCenter.current()
@@ -29,14 +35,16 @@ final class SoundManager {
       "Arcade": 184,
       "Retro": 220
    ]
-      
+   
    public func changeAudio() {
       if Global.shared.soundIsOn {
          playMusic()
+         delegate?.setSoundOnUI()
       } else {
          stopMusic()
          center.removeAllPendingNotificationRequests()
          timer.invalidate()
+         delegate?.setSoundOffUI()
       }
    }
    
@@ -67,6 +75,19 @@ final class SoundManager {
    private func stopMusic() {
       songPlayer?.stop()
       timer.invalidate()
+   }
+   
+   public func playCountDown() {
+      if let url = Bundle.main.url(forResource: "Pop", withExtension: "m4a") {
+         do {
+            countDown = try AVAudioPlayer(contentsOf: url)
+            countDown?.play()
+         } catch let error {
+            print("Error playing Pop.m4a : \(error)")
+         }
+      } else {
+         print("Unable to create url for Pop.m4a")
+      }
    }
       
    public func playAttackSound() {

@@ -17,16 +17,16 @@ class SwipeBattleVC: UIViewController {
    @IBOutlet weak var restartButton: UIButton!
    
    @IBOutlet weak var orangePulseView: UIView!
-   private let orangeSwipeView: SwipeView = {
-      let view = SwipeView()
-      view.translatesAutoresizingMaskIntoConstraints = false
-      view.isUserInteractionEnabled = true
-      view.layer.cornerRadius = 8
-      view.layer.masksToBounds = true
-      view.backgroundColor = UIColor(named: "OrangeTeam")
-      view.alpha = 1
-      return view
-   }()
+   private let orangeSwipeView = SwipeView()
+//   private let orangeSwipeView: SwipeView = {
+//      let view = SwipeView()
+////      view.translatesAutoresizingMaskIntoConstraints = false
+//      view.layer.cornerRadius = 8
+////      view.layer.masksToBounds = true
+//      view.backgroundColor = UIColor(named: "OrangeTeam")
+//      view.alpha = 1
+//      return view
+//   }()
    private var orangeSwipeLabel: UILabel = {
       let label = UILabel()
       label.text = "Swipe!"
@@ -43,7 +43,6 @@ class SwipeBattleVC: UIViewController {
    private let blueSwipeView: SwipeView = {
       let view = SwipeView()
       view.translatesAutoresizingMaskIntoConstraints = false
-      view.isUserInteractionEnabled = true
       view.layer.cornerRadius = 8
       view.layer.masksToBounds = true
       view.backgroundColor = UIColor(named: "BlueTeam")
@@ -93,40 +92,57 @@ class SwipeBattleVC: UIViewController {
    }
    
    private func setupOrangeTeam() {
+      orangePulseView.translatesAutoresizingMaskIntoConstraints = false
+      orangePulseView.layer.masksToBounds = true
+      
+      orangeSwipeView.translatesAutoresizingMaskIntoConstraints = false
+      orangeSwipeView.layer.masksToBounds = true
+      orangeSwipeView.layer.cornerRadius = 8
+      orangeSwipeView.backgroundColor = UIColor(named: "OrangeTeam")
+      orangeSwipeView.alpha = 1
+//      orangeSwipeView.frame = orangePulseView.frame
+//      orangeSwipeView.frame = view.frame
+      print(view.frame)
+      print(orangePulseView.frame)
       view.addSubview(orangeSwipeView)
-      orangeSwipeView.frame = orangePulseView.frame
+//      orangeSwipeView.backgroundColor = .white
+      
+      // WHY DOES THE FINGER TRACKING GO OFF WHEN I DON'T USE self.view ?????
+      
+      print(orangeSwipeView.frame)
       NSLayoutConstraint.activate([
          orangeSwipeView.leadingAnchor.constraint(equalTo: orangePulseView.leadingAnchor, constant: 5),
          orangeSwipeView.trailingAnchor.constraint(equalTo: orangePulseView.trailingAnchor, constant: -5),
          orangeSwipeView.topAnchor.constraint(equalTo: orangePulseView.topAnchor, constant: 5),
          orangeSwipeView.bottomAnchor.constraint(equalTo: orangePulseView.bottomAnchor, constant: -5),
       ])
+      print(orangeSwipeView.frame)
       
-      orangeSwipeView.addSubview(orangeSwipeLabel)
-      NSLayoutConstraint.activate([
-         orangeSwipeLabel.centerXAnchor.constraint(equalTo: orangeSwipeView.centerXAnchor),
-         orangeSwipeLabel.centerYAnchor.constraint(equalTo: orangeSwipeView.centerYAnchor)
-      ])
+//      orangeSwipeView.addSubview(orangeSwipeLabel)
+//      NSLayoutConstraint.activate([
+//         orangeSwipeLabel.centerXAnchor.constraint(equalTo: orangeSwipeView.centerXAnchor),
+//         orangeSwipeLabel.centerYAnchor.constraint(equalTo: orangeSwipeView.centerYAnchor)
+//      ])
       orangePulseView.layer.cornerRadius = 8
-      orangePulseView.alpha = 0
+//      orangePulseView.alpha = 0
    }
    
    private func setupBlueTeam() {
-      view.addSubview(blueSwipeView)
-      blueSwipeView.frame = bluePulseView.frame
-      NSLayoutConstraint.activate([
-         blueSwipeView.leadingAnchor.constraint(equalTo: bluePulseView.leadingAnchor, constant: 5),
-         blueSwipeView.trailingAnchor.constraint(equalTo: bluePulseView.trailingAnchor, constant: -5),
-         blueSwipeView.topAnchor.constraint(equalTo: bluePulseView.topAnchor, constant: 5),
-         blueSwipeView.bottomAnchor.constraint(equalTo: bluePulseView.bottomAnchor, constant: -5),
-      ])
-      blueSwipeView.addSubview(blueSwipeLabel)
-      NSLayoutConstraint.activate([
-         blueSwipeLabel.centerXAnchor.constraint(equalTo: blueSwipeView.centerXAnchor),
-         blueSwipeLabel.centerYAnchor.constraint(equalTo: blueSwipeView.centerYAnchor)
-      ])
-      bluePulseView.layer.cornerRadius = 8
-      bluePulseView.alpha = 0
+//      view.addSubview(blueSwipeView)
+//      blueSwipeView.frame = bluePulseView.frame
+//      NSLayoutConstraint.activate([
+//         blueSwipeView.leadingAnchor.constraint(equalTo: bluePulseView.leadingAnchor, constant: 5),
+//         blueSwipeView.trailingAnchor.constraint(equalTo: bluePulseView.trailingAnchor, constant: -5),
+//         blueSwipeView.topAnchor.constraint(equalTo: bluePulseView.topAnchor, constant: 5),
+//         blueSwipeView.bottomAnchor.constraint(equalTo: bluePulseView.bottomAnchor, constant: -5),
+//      ])
+////      blueSwipeView.addSubview(blueSwipeLabel)
+////      NSLayoutConstraint.activate([
+////         blueSwipeLabel.centerXAnchor.constraint(equalTo: blueSwipeView.centerXAnchor),
+////         blueSwipeLabel.centerYAnchor.constraint(equalTo: blueSwipeView.centerYAnchor)
+////      ])
+//      bluePulseView.layer.cornerRadius = 8
+//      bluePulseView.alpha = 0
    }
    
    private func setupScoreView() {
@@ -137,28 +153,28 @@ class SwipeBattleVC: UIViewController {
    }
    
    private func setupSettingsView() {
-      settingsView.isHidden = true
-      settingsView.alpha = 0
-      let tap = UITapGestureRecognizer(target: self, action: #selector(backgroundTapped))
-      settingsView.addGestureRecognizer(tap)
-      settingsView.isUserInteractionEnabled = true
-      settingsStackView.isHidden = true
-      settingsStackView.alpha = 0
-      
-      settingsButtons.forEach { button in
-         button.isHidden = true
-         button.alpha = 0
-         button.layer.cornerRadius = 8
-         button.layer.borderWidth = 2.5
-         button.layer.borderColor = UIColor.white.cgColor
-      }
-      if Global.shared.soundIsOn {
-         settingsButtons[toggleSoundIndex].backgroundColor = .systemGreen
-         settingsButtons[toggleSoundIndex].setTitle("Sound on", for: .normal)
-      } else {
-         settingsButtons[toggleSoundIndex].backgroundColor = .systemRed
-         settingsButtons[toggleSoundIndex].setTitle("Sound off", for: .normal)
-      }
+//      settingsView.isHidden = true
+//      settingsView.alpha = 0
+//      let tap = UITapGestureRecognizer(target: self, action: #selector(backgroundTapped))
+//      settingsView.addGestureRecognizer(tap)
+//      settingsView.isUserInteractionEnabled = true
+//      settingsStackView.isHidden = true
+//      settingsStackView.alpha = 0
+//
+//      settingsButtons.forEach { button in
+//         button.isHidden = true
+//         button.alpha = 0
+//         button.layer.cornerRadius = 8
+//         button.layer.borderWidth = 2.5
+//         button.layer.borderColor = UIColor.white.cgColor
+//      }
+//      if Global.shared.soundIsOn {
+//         settingsButtons[toggleSoundIndex].backgroundColor = .systemGreen
+//         settingsButtons[toggleSoundIndex].setTitle("Sound on", for: .normal)
+//      } else {
+//         settingsButtons[toggleSoundIndex].backgroundColor = .systemRed
+//         settingsButtons[toggleSoundIndex].setTitle("Sound off", for: .normal)
+//      }
    }
    
    private func setupDropDownViews() {
@@ -186,6 +202,8 @@ class SwipeBattleVC: UIViewController {
    @IBAction func backButtonTapped(_ sender: UIButton) {
       self.navigationController?.popViewController(animated: true)
    }
+   
+   
    
    // MARK: - Settings
    @IBAction func settingsTapped(_ sender: UIButton) {
@@ -266,20 +284,5 @@ class SwipeBattleVC: UIViewController {
          settingsButtons[toggleSoundIndex].setTitle("Sound on", for: .normal)
       }
       SoundManager.shared.changeAudio()
-   }
-   
-   @IBAction func restartTapped(_ sender: UIButton) {
-      gameStarted = false
-      secondsPassed = 0
-      blueTeam.score = 0
-      orangeTeam.score = 0
-      UIView.animate(withDuration: 0.5) { [weak self] in
-//         self?.orangeSwipeLabel.isHidden = false
-//         self?.blueSwipeLabel.isHidden = false
-         self?.bluePulseView.alpha = 0
-         self?.bluePulseView.backgroundColor = .white
-         self?.orangePulseView.alpha = 0
-         self?.orangePulseView.backgroundColor = .white
-      }
    }
 }

@@ -136,6 +136,7 @@ class TapBattleVC: UIViewController {
       self.navigationController?.popViewController(animated: true)
    }
    
+   // MARK: - Player Actions
    @objc private func orangeTapped() {
       if !gameStarted {
          gameStarted = true
@@ -171,12 +172,12 @@ class TapBattleVC: UIViewController {
       } else {
          secondsPassed += 1
          UIView.animate(withDuration: 0.5) { [weak self] in
-            self?.bluePulseView.alpha = 1
-            self?.orangePulseView.alpha = 1
+            self?.bluePulseView.alpha = 0
+            self?.orangePulseView.alpha = 0
          } completion: { _ in
             UIView.animate(withDuration: 0.5) { [weak self] in
-               self?.bluePulseView.alpha = 0
-               self?.orangePulseView.alpha = 0
+               self?.bluePulseView.alpha = 1
+               self?.orangePulseView.alpha = 1
             }
          }
       }
@@ -192,16 +193,20 @@ class TapBattleVC: UIViewController {
       orangePulseView.backgroundColor = .red
       orangePulseView.alpha = 1      
       
+      evaluateScores()
+   }
+   
+   private func evaluateScores() {
       if blueTeam.score > orangeTeam.score {
          blueButton.text = Constants.winner
          BlueTeam.winCount += 1
          blueScore.text = "\(BlueTeam.winCount)"
          orangeButton.text = Constants.loser
       } else if blueTeam.score < orangeTeam.score {
-         orangeButton.text = Constants.loser
+         orangeButton.text = Constants.winner
          OrangeTeam.winCount += 1
          orangeScore.text = "\(OrangeTeam.winCount)"
-         blueButton.text = Constants.winner
+         blueButton.text = Constants.loser
       } else {
          blueButton.text = Constants.tie
          orangeButton.text = Constants.tie
@@ -239,15 +244,14 @@ class TapBattleVC: UIViewController {
          settingsButtons.forEach { button in
             button.isHidden = true
          }
-         showSettings.toggle()
       } else {
          settingsView.isHidden = false
          settingsStackView.isHidden = false
          settingsButtons.forEach { button in
             button.isHidden = false
          }
-         showSettings.toggle()
       }
+      showSettings = showSettings == true ? false : true
    }
    
    @IBAction func chooseSongTapped(_ sender: UIButton) {

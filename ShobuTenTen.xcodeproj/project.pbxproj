@@ -14,9 +14,15 @@
 		BC3D0EB126C076FF0010918E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BC3D0EAF26C076FF0010918E /* Main.storyboard */; };
 		BC3D0EB326C077000010918E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BC3D0EB226C077000010918E /* Assets.xcassets */; };
 		BC3D0EB626C077000010918E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BC3D0EB426C077000010918E /* LaunchScreen.storyboard */; };
+		BC64B53026CB11C1002600AB /* DotsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC64B52E26CB11C1002600AB /* DotsCollectionViewCell.swift */; };
+		BC64B53126CB11C1002600AB /* DotsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC64B52F26CB11C1002600AB /* DotsCollectionViewCell.xib */; };
 		BC7B4AF626C134D100B64F78 /* TapBattleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7B4AF526C134D100B64F78 /* TapBattleVC.swift */; };
 		BC7B4AFD26C13F4400B64F78 /* Players.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7B4AFC26C13F4400B64F78 /* Players.swift */; };
 		BC7B4AFF26C1514000B64F78 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7B4AFE26C1514000B64F78 /* Constants.swift */; };
+		BC86314B26CA405F00DE83C8 /* SongButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC86314A26CA405F00DE83C8 /* SongButton.swift */; };
+		BC86314D26CA412A00DE83C8 /* SoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC86314C26CA412A00DE83C8 /* SoundButton.swift */; };
+		BC86314F26CA418700DE83C8 /* TimeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC86314E26CA418700DE83C8 /* TimeButton.swift */; };
+		BC86315126CA41C800DE83C8 /* ToggleSoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC86315026CA41C800DE83C8 /* ToggleSoundButton.swift */; };
 		BC932D2E26C1B62600AA045F /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC932D2D26C1B62600AA045F /* Extensions.swift */; };
 		BC932D3126C1EB9000AA045F /* Samurai.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BC932D3026C1EB9000AA045F /* Samurai.mp3 */; };
 		BC932D3326C1EB9800AA045F /* Arcade.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BC932D3226C1EB9800AA045F /* Arcade.mp3 */; };
@@ -24,11 +30,18 @@
 		BC932D3926C1EC2900AA045F /* Sword.m4a in Resources */ = {isa = PBXBuildFile; fileRef = BC932D3826C1EC2900AA045F /* Sword.m4a */; };
 		BC932D3A26C1EC2D00AA045F /* Pop.m4a in Resources */ = {isa = PBXBuildFile; fileRef = BC932D3626C1EBF300AA045F /* Pop.m4a */; };
 		BC932D3D26C1ECD200AA045F /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC932D3C26C1ECD200AA045F /* SoundManager.swift */; };
+		BCBDE94026C5DF5F00E2AF7D /* DotsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCBDE93F26C5DF5F00E2AF7D /* DotsVC.swift */; };
+		BCBDE94626C60CFE00E2AF7D /* TestVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCBDE94526C60CFE00E2AF7D /* TestVC.swift */; };
+		BCBF806726C859DC00052A4F /* SettingsStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCBF806626C859DC00052A4F /* SettingsStack.swift */; };
+		BCBF806B26C85A1600052A4F /* SettingsStack.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCBF806A26C85A1600052A4F /* SettingsStack.xib */; };
 		BCBFEE0C26C3315400A46F01 /* SwipeBattleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCBFEE0B26C3315400A46F01 /* SwipeBattleVC.swift */; };
 		BCCEF1C426C384B9007C3402 /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCEF1C326C384B9007C3402 /* Global.swift */; };
 		BCCEF1C726C38D5C007C3402 /* ChooseGameCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCEF1C526C38D5C007C3402 /* ChooseGameCell.swift */; };
 		BCCEF1C826C38D5C007C3402 /* ChooseGameCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCCEF1C626C38D5C007C3402 /* ChooseGameCell.xib */; };
 		BCCEF1CA26C3A617007C3402 /* SwipeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCEF1C926C3A617007C3402 /* SwipeView.swift */; };
+		BCFB1E9826C79EBA000567E3 /* SettingsBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFB1E9726C79EBA000567E3 /* SettingsBackgroundView.swift */; };
+		BCFB1E9A26C7A231000567E3 /* SettingsButtonStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFB1E9926C7A231000567E3 /* SettingsButtonStack.swift */; };
+		BCFB1E9C26C7A712000567E3 /* SettingsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFB1E9B26C7A712000567E3 /* SettingsButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,9 +56,15 @@
 		BC3D0EB226C077000010918E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BC3D0EB526C077000010918E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BC3D0EB726C077000010918E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BC64B52E26CB11C1002600AB /* DotsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DotsCollectionViewCell.swift; sourceTree = "<group>"; };
+		BC64B52F26CB11C1002600AB /* DotsCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DotsCollectionViewCell.xib; sourceTree = "<group>"; };
 		BC7B4AF526C134D100B64F78 /* TapBattleVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapBattleVC.swift; sourceTree = "<group>"; };
 		BC7B4AFC26C13F4400B64F78 /* Players.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Players.swift; sourceTree = "<group>"; };
 		BC7B4AFE26C1514000B64F78 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		BC86314A26CA405F00DE83C8 /* SongButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongButton.swift; sourceTree = "<group>"; };
+		BC86314C26CA412A00DE83C8 /* SoundButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundButton.swift; sourceTree = "<group>"; };
+		BC86314E26CA418700DE83C8 /* TimeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeButton.swift; sourceTree = "<group>"; };
+		BC86315026CA41C800DE83C8 /* ToggleSoundButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleSoundButton.swift; sourceTree = "<group>"; };
 		BC932D2D26C1B62600AA045F /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		BC932D3026C1EB9000AA045F /* Samurai.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Samurai.mp3; sourceTree = "<group>"; };
 		BC932D3226C1EB9800AA045F /* Arcade.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Arcade.mp3; sourceTree = "<group>"; };
@@ -53,11 +72,18 @@
 		BC932D3626C1EBF300AA045F /* Pop.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = Pop.m4a; sourceTree = "<group>"; };
 		BC932D3826C1EC2900AA045F /* Sword.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = Sword.m4a; sourceTree = "<group>"; };
 		BC932D3C26C1ECD200AA045F /* SoundManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
+		BCBDE93F26C5DF5F00E2AF7D /* DotsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DotsVC.swift; sourceTree = "<group>"; };
+		BCBDE94526C60CFE00E2AF7D /* TestVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestVC.swift; sourceTree = "<group>"; };
+		BCBF806626C859DC00052A4F /* SettingsStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsStack.swift; sourceTree = "<group>"; };
+		BCBF806A26C85A1600052A4F /* SettingsStack.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsStack.xib; sourceTree = "<group>"; };
 		BCBFEE0B26C3315400A46F01 /* SwipeBattleVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeBattleVC.swift; sourceTree = "<group>"; };
 		BCCEF1C326C384B9007C3402 /* Global.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
 		BCCEF1C526C38D5C007C3402 /* ChooseGameCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseGameCell.swift; sourceTree = "<group>"; };
 		BCCEF1C626C38D5C007C3402 /* ChooseGameCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChooseGameCell.xib; sourceTree = "<group>"; };
 		BCCEF1C926C3A617007C3402 /* SwipeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeView.swift; sourceTree = "<group>"; };
+		BCFB1E9726C79EBA000567E3 /* SettingsBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsBackgroundView.swift; sourceTree = "<group>"; };
+		BCFB1E9926C7A231000567E3 /* SettingsButtonStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsButtonStack.swift; sourceTree = "<group>"; };
+		BCFB1E9B26C7A712000567E3 /* SettingsButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +155,8 @@
 				BC3D0EAD26C076FF0010918E /* HomeVC.swift */,
 				BC7B4AF526C134D100B64F78 /* TapBattleVC.swift */,
 				BCBFEE0B26C3315400A46F01 /* SwipeBattleVC.swift */,
+				BCBDE93F26C5DF5F00E2AF7D /* DotsVC.swift */,
+				BCBDE94526C60CFE00E2AF7D /* TestVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -141,6 +169,17 @@
 				BCCEF1C526C38D5C007C3402 /* ChooseGameCell.swift */,
 				BCCEF1C626C38D5C007C3402 /* ChooseGameCell.xib */,
 				BCCEF1C926C3A617007C3402 /* SwipeView.swift */,
+				BCFB1E9726C79EBA000567E3 /* SettingsBackgroundView.swift */,
+				BCFB1E9B26C7A712000567E3 /* SettingsButton.swift */,
+				BCBF806A26C85A1600052A4F /* SettingsStack.xib */,
+				BCBF806626C859DC00052A4F /* SettingsStack.swift */,
+				BCFB1E9926C7A231000567E3 /* SettingsButtonStack.swift */,
+				BC86314A26CA405F00DE83C8 /* SongButton.swift */,
+				BC86314C26CA412A00DE83C8 /* SoundButton.swift */,
+				BC86314E26CA418700DE83C8 /* TimeButton.swift */,
+				BC86315026CA41C800DE83C8 /* ToggleSoundButton.swift */,
+				BC64B52E26CB11C1002600AB /* DotsCollectionViewCell.swift */,
+				BC64B52F26CB11C1002600AB /* DotsCollectionViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -246,11 +285,13 @@
 				BC932D3326C1EB9800AA045F /* Arcade.mp3 in Resources */,
 				BC3D0EB626C077000010918E /* LaunchScreen.storyboard in Resources */,
 				BC3D0EB326C077000010918E /* Assets.xcassets in Resources */,
+				BCBF806B26C85A1600052A4F /* SettingsStack.xib in Resources */,
 				BCCEF1C826C38D5C007C3402 /* ChooseGameCell.xib in Resources */,
 				BC3D0EB126C076FF0010918E /* Main.storyboard in Resources */,
 				BC932D3126C1EB9000AA045F /* Samurai.mp3 in Resources */,
 				BC932D3526C1EBA000AA045F /* Retro.mp3 in Resources */,
 				BC932D3A26C1EC2D00AA045F /* Pop.m4a in Resources */,
+				BC64B53126CB11C1002600AB /* DotsCollectionViewCell.xib in Resources */,
 				BC932D3926C1EC2900AA045F /* Sword.m4a in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -307,15 +348,26 @@
 				BC3D0EAE26C076FF0010918E /* HomeVC.swift in Sources */,
 				BC932D3D26C1ECD200AA045F /* SoundManager.swift in Sources */,
 				BC3D0EAA26C076FF0010918E /* AppDelegate.swift in Sources */,
+				BCFB1E9826C79EBA000567E3 /* SettingsBackgroundView.swift in Sources */,
+				BC86314F26CA418700DE83C8 /* TimeButton.swift in Sources */,
 				BC7B4AF626C134D100B64F78 /* TapBattleVC.swift in Sources */,
 				BC7B4AFD26C13F4400B64F78 /* Players.swift in Sources */,
 				BC3D0EAC26C076FF0010918E /* SceneDelegate.swift in Sources */,
+				BCBF806726C859DC00052A4F /* SettingsStack.swift in Sources */,
 				BC7B4AFF26C1514000B64F78 /* Constants.swift in Sources */,
 				BCCEF1CA26C3A617007C3402 /* SwipeView.swift in Sources */,
+				BCFB1E9C26C7A712000567E3 /* SettingsButton.swift in Sources */,
+				BC86314B26CA405F00DE83C8 /* SongButton.swift in Sources */,
 				BCBFEE0C26C3315400A46F01 /* SwipeBattleVC.swift in Sources */,
+				BC64B53026CB11C1002600AB /* DotsCollectionViewCell.swift in Sources */,
+				BC86314D26CA412A00DE83C8 /* SoundButton.swift in Sources */,
+				BCBDE94626C60CFE00E2AF7D /* TestVC.swift in Sources */,
+				BCBDE94026C5DF5F00E2AF7D /* DotsVC.swift in Sources */,
 				BCCEF1C426C384B9007C3402 /* Global.swift in Sources */,
+				BCFB1E9A26C7A231000567E3 /* SettingsButtonStack.swift in Sources */,
 				BCCEF1C726C38D5C007C3402 /* ChooseGameCell.swift in Sources */,
 				BC932D2E26C1B62600AA045F /* Extensions.swift in Sources */,
+				BC86315126CA41C800DE83C8 /* ToggleSoundButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

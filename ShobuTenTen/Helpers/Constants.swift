@@ -18,7 +18,7 @@ struct Constants {
    static let savedSound = "Sword" // String
    
    // MARK: - Segues
-   static let segues = ["ToTapBattleVC", "ToSwipeBattleVC"]   
+   static let segues = ["ToTapBattleVC", "ToSwipeBattleVC", "ToDotsVC", "ToTestVC"]   
    
    // MARK: - Game variables
    static var songDataSource = ["Samurai", "Arcade", "Retro"]
