@@ -7,5 +7,8 @@ target 'ShobuTenTen' do
 
   # Pods for ShobuTenTen
 pod 'DropDown'
+pod 'Firebase/Analytics'
+pod 'Firebase/Auth'
+pod 'Firebase/Firestore'
 
 end

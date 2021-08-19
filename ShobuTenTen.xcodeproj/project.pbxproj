@@ -34,6 +34,7 @@
 		BCBDE94626C60CFE00E2AF7D /* TestVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCBDE94526C60CFE00E2AF7D /* TestVC.swift */; };
 		BCBF806726C859DC00052A4F /* SettingsStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCBF806626C859DC00052A4F /* SettingsStack.swift */; };
 		BCBF806B26C85A1600052A4F /* SettingsStack.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCBF806A26C85A1600052A4F /* SettingsStack.xib */; };
+		BCBFE8CF26CE308A00BA477B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BCBFE8CE26CE308A00BA477B /* GoogleService-Info.plist */; };
 		BCBFEE0C26C3315400A46F01 /* SwipeBattleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCBFEE0B26C3315400A46F01 /* SwipeBattleVC.swift */; };
 		BCCEF1C426C384B9007C3402 /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCEF1C326C384B9007C3402 /* Global.swift */; };
 		BCCEF1C726C38D5C007C3402 /* ChooseGameCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCEF1C526C38D5C007C3402 /* ChooseGameCell.swift */; };
@@ -76,6 +77,7 @@
 		BCBDE94526C60CFE00E2AF7D /* TestVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestVC.swift; sourceTree = "<group>"; };
 		BCBF806626C859DC00052A4F /* SettingsStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsStack.swift; sourceTree = "<group>"; };
 		BCBF806A26C85A1600052A4F /* SettingsStack.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsStack.xib; sourceTree = "<group>"; };
+		BCBFE8CE26CE308A00BA477B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		BCBFEE0B26C3315400A46F01 /* SwipeBattleVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeBattleVC.swift; sourceTree = "<group>"; };
 		BCCEF1C326C384B9007C3402 /* Global.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
 		BCCEF1C526C38D5C007C3402 /* ChooseGameCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseGameCell.swift; sourceTree = "<group>"; };
@@ -145,6 +147,7 @@
 				BC3D0EB226C077000010918E /* Assets.xcassets */,
 				BC932D2F26C1EB8000AA045F /* Sounds */,
 				BC3D0EB726C077000010918E /* Info.plist */,
+				BCBFE8CE26CE308A00BA477B /* GoogleService-Info.plist */,
 			);
 			path = ShobuTenTen;
 			sourceTree = "<group>";
@@ -289,6 +292,7 @@
 				BCCEF1C826C38D5C007C3402 /* ChooseGameCell.xib in Resources */,
 				BC3D0EB126C076FF0010918E /* Main.storyboard in Resources */,
 				BC932D3126C1EB9000AA045F /* Samurai.mp3 in Resources */,
+				BCBFE8CF26CE308A00BA477B /* GoogleService-Info.plist in Resources */,
 				BC932D3526C1EBA000AA045F /* Retro.mp3 in Resources */,
 				BC932D3A26C1EC2D00AA045F /* Pop.m4a in Resources */,
 				BC64B53126CB11C1002600AB /* DotsCollectionViewCell.xib in Resources */,
@@ -444,7 +448,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -499,7 +503,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

@@ -8,7 +8,7 @@
 import UIKit
 import DropDown
 
-class TapBattleVC: UIViewController {
+final class TapBattleVC: UIViewController {
    @IBOutlet weak var orangeButton: UILabel!
    @IBOutlet weak var blueButton: UILabel!
    

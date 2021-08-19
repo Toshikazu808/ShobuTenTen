@@ -8,7 +8,7 @@
 import UIKit
 import DropDown
 
-class SwipeBattleVC: UIViewController {
+final class SwipeBattleVC: UIViewController {
    
    // MARK: - Properties
    @IBOutlet weak var blueScore: UILabel!

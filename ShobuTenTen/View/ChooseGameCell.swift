@@ -7,9 +7,9 @@
 
 import UIKit
 
-class ChooseGameCell: UITableViewCell {
+final class ChooseGameCell: UITableViewCell {
    static let id = "ChooseGameCell"
-   static let preferredHeight: CGFloat = 100
+   static let preferredHeight: CGFloat = 80
    @IBOutlet weak var gameLabel: UILabel!
    
    override func awakeFromNib() {

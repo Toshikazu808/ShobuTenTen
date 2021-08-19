@@ -9,9 +9,8 @@ import UIKit
 import AVFoundation
 import DropDown
 
-class HomeVC: UIViewController {
+final class HomeVC: UIViewController {
    
-   @IBOutlet weak var tableView: UITableView!
    private var showSettings = false
    @IBOutlet weak var settingsView: UIView!
    @IBOutlet var settingsButtons: [UIButton]!
@@ -20,14 +19,25 @@ class HomeVC: UIViewController {
    private let soundDropDown = DropDown()
    private let timeDropDown = DropDown()
    private var dropCollection = [DropDown]()
-   private let gameSelections = ["Tap Battle", "Swipe Battle", "Dots", "Test"]
+   private let gameSelections = ["Tap Battle", "Swipe Battle", "Dots"]
    private let soundManager = SoundManager()
+   private var tableView: UITableView = {
+      let tableView = UITableView()
+      tableView.backgroundColor = .blue
+      tableView.layer.cornerRadius = 8
+      tableView.register(UINib(nibName: ChooseGameCell.id, bundle: nil), forCellReuseIdentifier: ChooseGameCell.id)
+      tableView.translatesAutoresizingMaskIntoConstraints = false
+      return tableView
+   }()
+   private var tvHeight: CGFloat {
+      return ChooseGameCell.preferredHeight * CGFloat(gameSelections.count)
+   }
    
    override func viewDidLoad() {
       super.viewDidLoad()
       soundManager.delegate = self
       SoundManager.shared.changeAudio()
-      setupMainView()
+      setupTableView()
       setupSettingsViews()
       setupDropDownViews()
    }
@@ -37,12 +47,16 @@ class HomeVC: UIViewController {
       self.navigationController?.isNavigationBarHidden = true
    }
    
-   private func setupMainView() {
+   private func setupTableView() {
       tableView.delegate = self
       tableView.dataSource = self
-      tableView.backgroundColor = .clear
-      tableView.layer.cornerRadius = 8
-      tableView.register(UINib(nibName: ChooseGameCell.id, bundle: nil), forCellReuseIdentifier: ChooseGameCell.id)
+      view.insertSubview(tableView, belowSubview: settingsView)
+      NSLayoutConstraint.activate([
+         tableView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+         tableView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+         tableView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.65),
+         tableView.heightAnchor.constraint(equalToConstant: tvHeight)
+      ])
    }
    
    private func setupSettingsViews() {

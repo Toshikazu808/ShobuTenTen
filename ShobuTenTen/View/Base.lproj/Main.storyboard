@@ -20,10 +20,6 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background" translatesAutoresizingMaskIntoConstraints="NO" id="DdQ-IX-tJl">
                                 <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                             </imageView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="8sz-Oi-nik" userLabel="Select Game Table View">
-                                <rect key="frame" x="128.33333333333331" y="231.66666666666663" width="171.33333333333331" height="463"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V75-HR-cpW" userLabel="Settings Button">
                                 <rect key="frame" x="352.33333333333331" y="59" width="45.666666666666686" height="44.333333333333343"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -107,15 +103,11 @@
                             <constraint firstItem="DdQ-IX-tJl" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="2fH-uB-3LW"/>
                             <constraint firstItem="rwA-i1-uF5" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="4ON-Wa-WRs"/>
                             <constraint firstItem="OB8-N2-30J" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="AEN-lK-fcv"/>
-                            <constraint firstItem="8sz-Oi-nik" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.5" id="HLz-Dj-XZj"/>
-                            <constraint firstItem="8sz-Oi-nik" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.4" id="KZH-6Z-QFz"/>
                             <constraint firstAttribute="bottom" secondItem="DdQ-IX-tJl" secondAttribute="bottom" id="QNs-LB-BU4"/>
-                            <constraint firstItem="8sz-Oi-nik" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Sf4-bp-M4S"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="RAj-09-HZA" secondAttribute="bottom" constant="2" id="VBR-kx-pIz"/>
                             <constraint firstAttribute="trailing" secondItem="DdQ-IX-tJl" secondAttribute="trailing" id="ZM4-gk-r3C"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="V75-HR-cpW" secondAttribute="trailing" constant="30" id="Zor-sL-8es"/>
                             <constraint firstItem="rwA-i1-uF5" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="bg3-ut-gCh"/>
-                            <constraint firstItem="8sz-Oi-nik" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="cIY-hZ-VjH"/>
                             <constraint firstItem="OB8-N2-30J" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="jCM-9y-4yS"/>
                             <constraint firstAttribute="bottom" secondItem="OB8-N2-30J" secondAttribute="bottom" id="p6w-7e-mLi"/>
                             <constraint firstItem="V75-HR-cpW" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="15" id="tGW-7b-BbC"/>
@@ -127,7 +119,6 @@
                     <navigationItem key="navigationItem" id="Tr1-cO-QAl"/>
                     <connections>
                         <outlet property="settingsView" destination="OB8-N2-30J" id="jPD-7o-dHT"/>
-                        <outlet property="tableView" destination="8sz-Oi-nik" id="fza-zG-U0J"/>
                         <outletCollection property="settingsButtons" destination="8ye-x6-6bo" collectionClass="NSMutableArray" id="j1f-bn-oXf"/>
                         <outletCollection property="settingsButtons" destination="MIf-o3-SMC" collectionClass="NSMutableArray" id="UuQ-Bl-0mO"/>
                         <outletCollection property="settingsButtons" destination="bdg-Nl-jwN" collectionClass="NSMutableArray" id="Pg8-BD-rJc"/>

@@ -8,7 +8,7 @@
 import UIKit
 import DropDown
 
-class DotsVC: UIViewController {
+final class DotsVC: UIViewController {
    
    // MARK: - Properties
    @IBOutlet weak var restartButton: UIButton!
